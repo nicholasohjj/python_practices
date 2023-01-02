@@ -5,5 +5,14 @@ def denomination(n):
     return list[n-1]
 
 def counting_change(amount, types):
- 
+    if amount == 0:
+        return 1
+    elif amount < 0:
+        return 0
+    elif types == 0:
+        return 0
+    else:
+        return counting_change(amount-denomination(types), types) + counting_change(amount,types-1)
     
+
+print(counting_change(100,5))
